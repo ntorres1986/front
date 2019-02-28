@@ -1,0 +1,69 @@
+
+<div class="button-row">
+    <a [routerLink]="['/customer']">Go to customers</a>
+</div>
+<div class="col-md-6 offset-md-3">
+    <form [formGroup]="customerForm" (ngSubmit)="onFormSubmit(customerForm.value)">
+        <div class="form-group row">
+          <div class="col">
+            <label>Name</label>
+            <span class="required">*</span>
+            <input type="text" class="form-control" formControlName="name" placeholder="Name">
+            <div *ngIf="customerForm.get('name').errors && customerForm.get('name').dirty">
+                <p class="danger" ion-text *ngIf="customerForm.get('name').hasError('required')">Field is required</p>
+                <p class="danger" ion-text *ngIf="customerForm.get('name').hasError('minlength')">Min of 1 character</p>
+                <p class="danger" ion-text *ngIf="customerForm.get('name').hasError('maxlength')">Min of 50 characters</p>
+            </div>
+          </div>
+          <div class="col">
+            <label>Address</label>
+            <span class="required">*</span>
+            <input type="text" class="form-control" formControlName="address" placeholder="Address">
+            <div *ngIf="customerForm.get('address').errors && customerForm.get('address').dirty">
+                <p class="danger" ion-text *ngIf="customerForm.get('address').hasError('required')">Field is required</p>
+                <p class="danger" ion-text *ngIf="customerForm.get('address').hasError('minlength')">Min of 1 character</p>
+                <p class="danger" ion-text *ngIf="customerForm.get('address').hasError('maxlength')">Min of 100 characters</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group row">
+            <div class="col">
+              <label>City</label>
+              <span class="required">*</span>
+              <input type="text" class="form-control" formControlName="city" placeholder="City">
+              <div *ngIf="customerForm.get('city').errors && customerForm.get('city').dirty">
+                  <p class="danger" ion-text *ngIf="customerForm.get('city').hasError('required')">Field is required</p>
+                  <p class="danger" ion-text *ngIf="customerForm.get('city').hasError('minlength')">Min of 1 character</p>
+                  <p class="danger" ion-text *ngIf="customerForm.get('city').hasError('maxlength')">Min of 30 characters</p>
+              </div>
+            </div>
+            <div class="col">
+                <label>Telephone</label>
+                <span class="required">*</span>
+              <input type="text" class="form-control" formControlName="telephone" placeholder="Telephone">
+              <div *ngIf="customerForm.get('telephone').errors && customerForm.get('telephone').dirty">
+                  <p class="danger" ion-text *ngIf="customerForm.get('telephone').hasError('required')">Field is required</p>
+                  <p class="danger" ion-text *ngIf="customerForm.get('telephone').hasError('minlength')">Min of 1 character</p>
+                  <p class="danger" ion-text *ngIf="customerForm.get('telephone').hasError('maxlength')">Min of 20 characters</p>
+                  <p class="danger" ion-text *ngIf="customerForm.get('telephone').hasError('pattern')">Only allow number</p>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row hide" [ngClass]="{ 'hide': messageErrors }" > 
+            <div class="col">         
+                <div class="alert alert-danger" role="alert">
+                    Missing data in the form
+                </div>
+            </div>
+        </div>
+  
+        <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Update customer</button>
+            </div>
+        </div>
+      
+    </form>
+  </div>

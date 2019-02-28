@@ -1,0 +1,31 @@
+<div class="row text-right">
+    <div class="col">
+    <button type="button" [routerLink]="['/adviser-add']" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+        Add adviser
+    </button>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <th>ACTIONS</th>
+        <th>NAME</th>
+        <th>SPECIALTY</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let adviser of advisers">
+            <td>
+                <a [routerLink]="['/adviser-details' , adviser.id]">
+                    <i class="material-icons md-18">search</i>
+                </a>
+
+                <a [routerLink]="['/adviser-edit' , adviser.id]">
+                    <i class="material-icons md-18">edit</i>
+                </a>
+                
+            </td>
+
+            <td>{{adviser.name}}</td> 
+            <td>{{adviser.specialty}}</td>
+        </tr>
+    </tbody>
+</table>

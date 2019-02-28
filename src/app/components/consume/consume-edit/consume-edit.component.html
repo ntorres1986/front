@@ -1,0 +1,61 @@
+
+
+<div class="button-row">
+        <a [routerLink]="['/consumes', consume.card.id, consume.card.number]">Go to consumes</a>
+      </div>
+<div class="col-md-6 offset-md-3">
+        <form [formGroup]="consumeForm" (ngSubmit)="onFormSubmit(consumeForm.value)">
+      
+            <div class="form-group row">
+              <div class="col">
+                  <label>Date</label>
+                  <span class="required">*</span>
+                  <input type="date" class="form-control"  [(ngModel)]="consume.date" formControlName="date">                
+                  <div *ngIf="consumeForm.get('date').errors && consumeForm.get('date').dirty">
+                      <p class="danger" ion-text *ngIf="consumeForm.get('date').hasError('required')">Field is required</p>
+                      <p class="danger" ion-text *ngIf="consumeForm.get('date').hasError('minlength')">Min of 16 character</p>
+                      <p class="danger" ion-text *ngIf="consumeForm.get('date').hasError('maxlength')">Min of 16 characters</p>
+                  </div>
+              </div>
+      
+              <div class="col">
+                  <label>Amount</label>
+                  <span class="required">*</span>
+                  <input type="text" class="form-control" [(ngModel)]= "consume.amount" formControlName="amount" placeholder="Amount">
+                  <div *ngIf="consumeForm.get('amount').errors && consumeForm.get('amount').dirty">
+                        <p class="danger" ion-text *ngIf="consumeForm.get('amount').hasError('required')">Field is required</p>
+                        <p class="danger" ion-text *ngIf="consumeForm.get('amount').hasError('minlength')">Min of 1 character</p>
+                        <p class="danger" ion-text *ngIf="consumeForm.get('amount').hasError('maxlength')">Min of 12 characters</p>
+                        <p class="danger" ion-text *ngIf="consumeForm.get('amount').hasError('pattern')">Only allow number</p>
+                  </div>
+              </div>
+            </div>
+            <div class="form-group row">            
+                <div class="col">
+                  <label>Card type</label>
+                  <span class="required">*</span>
+                  <input type="text" class="form-control" [(ngModel)]= "consume.description" formControlName="description" placeholder="Card type">
+                  <div *ngIf="consumeForm.get('description').errors && consumeForm.get('description').dirty">
+                      <p class="danger" ion-text *ngIf="consumeForm.get('description').hasError('required')">Field is required</p>
+                      <p class="danger" ion-text *ngIf="consumeForm.get('description').hasError('minlength')">Min of 1 character</p>
+                      <p class="danger" ion-text *ngIf="consumeForm.get('description').hasError('maxlength')">Min of 50 characters</p>
+                  </div>
+              </div>
+            </div>
+      
+            <div class="form-group row hide" [ngClass]="{ 'hide': messageErrors }" > 
+                  <div class="col">         
+                      <div class="alert alert-danger" role="alert">
+                          Missing data in the form
+                      </div>
+                  </div>
+              </div>
+      
+            <div class="form-group row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Update consume</button>
+                </div>
+            </div>
+      
+        </form>
+      </div>

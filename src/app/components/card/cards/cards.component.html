@@ -1,0 +1,41 @@
+ 
+<div class="button-row">
+        <a [routerLink]="['/customer']">Go to customer</a>
+    </div>
+    
+<div class="row text-right">
+        <div class="col">
+        <button type="button" [routerLink]="['/card-add' , customerId]" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+            Add card
+        </button>
+        </div>
+    </div>
+<table class="table">
+    <thead>
+        <th>ACTIONS</th>
+        <th>CCV</th>
+        <th>NUMBER</th>
+        <th>CONSUMES</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let card of cards">
+            <td>
+                <a [routerLink]="['/card-details' , card.id]">
+                    <i class="material-icons md-18">search</i>
+                </a>
+
+                <a [routerLink]="['/card-edit' , card.id]">
+                    <i class="material-icons md-18">edit</i>
+                </a>
+            </td>
+
+            <td>{{card.ccv}}</td> 
+            <td>{{card.number}}</td>
+            <td>
+                <a [routerLink]="['/consumes', card.id, card.number]">
+                    <i class="material-icons md-18">monetization_on</i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

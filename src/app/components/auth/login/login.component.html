@@ -1,0 +1,65 @@
+  <div id="loginLeft"></div>
+  <div id="loginRight">
+    <div class="container h-100">
+      <div class="row h-100 justify-content-center align-items-center">
+        
+          <div class="wrapper">
+            <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+              <div class="group">
+                    <p class="title">LINTELLECT</p>
+                    <p class="subtitle">Welcome! Please login to your account.</p>
+              </div>
+              <div class="group">
+                <input type="text" name="username" [(ngModel)]="user.username" formControlName="username" autocomplete="off" />
+                <div *ngIf="loginForm.get('username').errors && loginForm.get('username').dirty">
+                    <p class="danger" ion-text *ngIf="loginForm.get('username').hasError('required')">Field is required</p>
+                </div>
+                
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Username</label>
+                
+              </div>
+              <div class="group">
+                <input type="password" name="username" [(ngModel)]="user.password" formControlName="password"  autocomplete="off" />
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Password</label>
+              </div>
+              
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-check">
+                      <input class="form-check-input" name="remember" [(ngModel)]="remember" formControlName="remember" type="checkbox" id="gridCheck" />
+                      <label class="form-check-label" for="gridCheck">
+                        Remember me
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <a [routerLink]="['/reset-account']" class="forgot-password">Forgot password</a>
+                  </div>
+                </div>
+
+              <div class="row mt-20">
+                    <div class="col-md-6">
+                      <button class="btn btn-login left" type="submit">Login</button>
+                    </div>
+                    <div class="col-md-6">
+                      <a class="btn btn-sign-up right" [routerLink]="['/signup']">Sign Up</a>
+                    </div>
+              </div>
+            </form>
+          </div>
+         
+      </div>  
+    </div>
+  </div>
+
+  <div class="parent-loading" [ngClass]="{'show':loading}">
+  <div class="loading" >
+      <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
+      </div>
+  </div>
+  </div>

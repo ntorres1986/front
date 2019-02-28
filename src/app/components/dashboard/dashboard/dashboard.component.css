@@ -1,0 +1,70 @@
+#header{
+    width: 85%;
+    height: 8%;
+    background-color: white;
+    float: right;
+} 
+#menu{
+    width: 15%;
+    height: 100%;
+    float: left;
+    background-color: #45455b;
+}
+#content{
+    width: 85%;
+    height: 100%;
+    background-color: #F0F0F7;
+    float: right;
+}
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.home:before {
+    font-family: "FontAwesome";
+    content: "\f015";
+}
+.dashboard:before {
+    font-family: "FontAwesome";
+    content: "\f080";
+}
+.email:before {
+    font-family: "FontAwesome";
+    content: "\f0e0";
+}
+a:before {
+   color: #a3a4ba;
+   border-left: 4px solid #43425D;
+   font-family: "FontAwesome";
+   display: inline-block;
+   padding-right: 13px;
+   padding-left: 13px;
+   vertical-align: middle;
+   font-weight:900;
+}
+ul{
+    margin-top: 20px;
+}
+ul li{
+    height: 50px;
+}
+ul li:first-child a{
+    padding-left: 10px;
+}
+ul li:nth-child(1n+2):hover{
+    background-color: #3e4053;
+    cursor: pointer;
+}
+ul li a{
+    color: #a3a4ba;
+    line-height: 3;
+    text-decoration: none;
+}
+ul li a span{
+    font-family:"Source Sans Pro" !important;
+} 
+ul li.selected a::before{
+    color: #7dc0ed;
+    border-left: 4px solid #7dc0ed;
+}

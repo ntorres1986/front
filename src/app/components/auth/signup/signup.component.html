@@ -1,0 +1,154 @@
+<div id="loginLeft"></div>
+<div id="loginRight">
+  <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <form [formGroup]="signupForm" (ngSubmit)="onFormSubmit(signupForm.value)">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                  <div class="group">
+                      <input required="required" type="text" name="firstName" [(ngModel)]="user.firstName" formControlName="firstName" autocomplete="off" />
+                      <label>First name</label>
+                      <div *ngIf="signupForm.get('firstName').errors && signupForm.get('firstName').dirty">
+                          <p class="danger" ion-text *ngIf="signupForm.get('firstName').hasError('required')">Field is required</p>
+                      </div>
+                  </div> 
+              </div>
+              <div class="form-group col-md-6">
+                  <div class="group">
+                    <input required="required" type="text" name="lastName" [(ngModel)]="user.lastName" formControlName="lastName" autocomplete="off" />
+                    <label>Last name</label>
+                    <div *ngIf="signupForm.get('lastName').errors && signupForm.get('lastName').dirty">
+                        <p class="danger" ion-text *ngIf="signupForm.get('lastName').hasError('required')">Field is required</p>
+                    </div>
+                  </div> 
+              </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="group">
+                    <input required="required" type="text" name="username" [(ngModel)]="user.username" formControlName="username" autocomplete="off" />
+                    <label>Username</label>
+
+                    <div *ngIf="signupForm.get('username').errors && signupForm.get('username').dirty">
+                        <p class="danger" ion-text *ngIf="signupForm.get('username').hasError('required')">Field is required</p>
+                    </div>
+                  </div> 
+            </div>
+
+            <div class="form-group">
+                <div class="group">
+                    <input required="required" type="text" name="email" [(ngModel)]="user.email" formControlName="email" autocomplete="off" />
+                    <label>Email</label>
+                    <div *ngIf="signupForm.get('email').errors && signupForm.get('email').dirty">
+                        <p class="danger" ion-text *ngIf="signupForm.get('email').hasError('required')">Field is required</p>
+                    </div>
+                  </div> 
+            </div>
+
+            <div class="form-group">
+                <div class="group">
+                    <input required="required" type="text" name="password" [(ngModel)]="user.password" formControlName="password" autocomplete="off" />
+                    <label>Password</label>
+                    <div *ngIf="signupForm.get('password').errors && signupForm.get('password').dirty">
+                        <p class="danger" ion-text *ngIf="signupForm.get('password').hasError('required')">Field is required</p>
+                    </div>
+                  </div> 
+            </div>
+
+            <div class="form-group">
+                <div class="group">
+                    <input required="required" type="text" name="passwordConfirm" [(ngModel)]="user.passwordConfirm" formControlName="passwordConfirm" autocomplete="off" />
+                    <label>Confirm password</label>
+                    <div *ngIf="signupForm.get('passwordConfirm').errors && signupForm.get('passwordConfirm').dirty">
+                        <p class="danger" ion-text *ngIf="signupForm.get('passwordConfirm').hasError('required')">Field is required</p>
+                    </div>
+                  </div> 
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="terms" [(ngModel)]="terms" formControlName="terms" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    Check me out
+                  </label>
+                </div>
+            </div>
+            <div class="wrapper-btn">
+                <div class="btn-center">
+                  <button type="submit" class="btn btn-login">Sign in</button>
+                </div>
+            </div>
+            <div class="wrapper-btn">
+                  <a href="#" [routerLink]="['/signin']">
+                    <p class="text-center">
+                      Already have an account? Sign in.
+                    </p>
+                  </a>
+            </div>
+            
+        </form>
+      
+      <!--
+        <div class="wrapper">
+          <form [formGroup]="signupForm" (ngSubmit)="onFormSubmit(signupForm.value)">
+            <div class="group">
+                  <p class="title">LINTELLECT</p>
+                  <p class="subtitle">Welcome! Please login to your account.</p>
+            </div>
+            <div class="row">
+              <div style="width:48%;margin-right: 2%; float:left; height: 100%;">
+                  
+              </div>
+              <div style="width:48%; margin-left: 2%; float:right; height: 100%; ">
+                  
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="group">
+                <div class="col-md-12">
+                  <input type="password" name="username" [(ngModel)]="user.password" formControlName="password"  autocomplete="off" />
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Password</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" name="remember" [(ngModel)]="remember" formControlName="remember" type="checkbox" id="gridCheck" />
+                    <label class="form-check-label" for="gridCheck">
+                      Remember me
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <a href="#" class="forgot-password">Forgot password</a>
+                </div>
+              </div>
+
+            <div class="row mt-20">
+                  <div class="col-md-6">
+                    <button class="btn btn-login left" type="submit">Login</button>
+                  </div>
+                  <div class="col-md-6">
+                    <a class="btn btn-sign-up right" [routerLink]="['/signup']">Sign Up</a>
+                  </div>
+            </div>
+          </form>
+        </div>
+      -->
+       
+    </div>  
+  </div>
+</div>
+
+<div class="parent-loading" [ngClass]="{'show':loading}">
+<div class="loading" >
+    <div class="cssload-container">
+      <div class="cssload-speeding-wheel"></div>
+    </div>
+</div>
+</div>

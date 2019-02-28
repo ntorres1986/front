@@ -1,0 +1,32 @@
+
+<div class="col-md-6 offset-md-3">
+    <form [formGroup]="adviserForm" (ngSubmit)="onFormSubmit(adviserForm.value)">
+        <div class="form-group row">
+        
+          <div class="col">
+            <label>Adviser name</label>    
+            <input type="text" class="form-control" [(ngModel)]="adviser.name" formControlName="name" placeholder="Name">
+            <div *ngIf="adviserForm.get('name').errors && adviserForm.get('name').dirty">
+                <p color="danger" ion-text *ngIf="adviserForm.get('name').hasError('required')">Field is required</p>
+                <p color="danger" ion-text *ngIf="adviserForm.get('name').hasError('minlength')">Min of 1 character</p>
+                <p color="danger" ion-text *ngIf="adviserForm.get('name').hasError('maxlength')">Min of 50 characters</p>
+            </div>
+          </div>
+          <div class="col">
+            <label>Specialty</label>    
+            <input type="text" class="form-control" [(ngModel)]="adviser.specialty" formControlName="specialty" placeholder="Specialty">
+            <div *ngIf="adviserForm.get('specialty').errors && adviserForm.get('specialty').dirty">
+                <p color="danger" ion-text *ngIf="adviserForm.get('specialty').hasError('required')">Field is required</p>
+                <p color="danger" ion-text *ngIf="adviserForm.get('specialty').hasError('minlength')">Min of 1 character</p>
+                <p color="danger" ion-text *ngIf="adviserForm.get('specialty').hasError('maxlength')">Min of 50 characters</p>
+            </div>
+          </div>
+        </div>
+       
+        <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Save adviser</button>
+            </div>
+        </div>
+    </form>
+  </div>

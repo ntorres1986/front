@@ -1,0 +1,41 @@
+<div class="row text-right">
+    <div class="col">
+    <button type="button" [routerLink]="['/customer-add']" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+        Add customer
+    </button>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <th>ACTIONS</th>
+        <th>NAME</th>
+        <th>ADDRESS</th>
+        <th>CITY</th>
+        <th>TELEPHONE</th>
+        <th>CARDS</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td>
+                <a [routerLink]="['/customer-details' , customer.id]">
+                    <i class="material-icons md-18">search</i>
+                </a>
+
+                <a [routerLink]="['/customer-edit' , customer.id]">
+                    <i class="material-icons md-18">edit</i>
+                </a>
+                
+            </td>
+
+            <td>{{customer.name}}</td> 
+            <td>{{customer.address}}</td>
+            <td>{{customer.city}}</td>
+            <td>{{customer.telephone}}</td>
+            <td>
+                <a [routerLink]="['/cards', customer.id]">
+                    <i class="material-icons md-18">credit_card</i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

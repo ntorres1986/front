@@ -1,0 +1,49 @@
+<div id="loginLeft"></div>
+<div id="loginRight">
+  <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+      
+        <div class="wrapper">
+          <form [formGroup]="resetForm" (ngSubmit)="onFormSubmit(resetForm.value)">
+            <div class="group">
+                  <p class="title">LINTELLECT</p>
+                  <p class="subtitle">Enter your email and we send you a password reset link.</p>
+            </div>
+            <div class="group">
+              <input type="text" name="email" [(ngModel)]="email" formControlName="email" autocomplete="off" />
+              <div *ngIf="resetForm.get('email').errors && resetForm.get('email').dirty">
+                  <p class="danger" ion-text *ngIf="resetForm.get('email').hasError('required')">Field is required</p>
+              </div>
+              
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Email</label>
+              
+            </div> 
+
+            <div class="row mt-20">
+              <div class="col-md-12">
+                <button class="btn btn-login left" type="submit">Send request</button>
+              </div>
+            </div>
+            <div class="wrapper-btn">
+                <a href="#" [routerLink]="['/signin']">
+                  <p class="text-center">
+                    Already have an account? Sign in.
+                  </p>
+                </a>
+            </div>
+          </form>
+        </div>
+       
+    </div>  
+  </div>
+</div>
+
+<div class="parent-loading" [ngClass]="{'show':loading}">
+<div class="loading" >
+    <div class="cssload-container">
+      <div class="cssload-speeding-wheel"></div>
+    </div>
+</div>
+</div>

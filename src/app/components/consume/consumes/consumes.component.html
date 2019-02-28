@@ -1,0 +1,36 @@
+
+
+ <div class="row text-right">
+    <div class="col">
+    <button type="button"  [routerLink]="['/consume-add' , cardId, cardNumber]" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+        Add consume to card #{{cardNumber}}
+    </button>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <th>ACTIONS</th>
+        <th>DATE</th>
+        <th>DESCRIPTION</th>
+        <th>AMOUNT</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let consume of consumes">
+            <td>
+                <a [routerLink]="['/consume-details' , consume.id, cardId, cardNumber]">
+                    <i class="material-icons md-18">search</i>
+                </a>
+
+                <a [routerLink]="['/consume-edit' , consume.id, cardId, cardNumber]">
+                    <i class="material-icons md-18">edit</i>
+                </a>
+            </td>
+
+            <td>{{consume.date | date: 'dd/MM/yyyy'}}</td> 
+            <td>{{consume.description}}</td>
+            <td>{{consume.amount | currency}}</td>
+            
+        </tr>
+    </tbody>
+</table>

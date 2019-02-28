@@ -1,0 +1,57 @@
+
+<div class="col-md-6 offset-md-3">
+    <form [formGroup]="cardForm" (ngSubmit)="onFormSubmit(cardForm.value)">
+
+        <div class="form-group row">            
+            <div class="col">
+                <label>Card number</label>
+                <span class="required">*</span>
+                <input type="text" class="form-control"  mask="0000 0000 0000 0000" [(ngModel)]="card.number" formControlName="number" placeholder="Card number">                
+                <div *ngIf="cardForm.get('number').errors && cardForm.get('number').dirty">
+                    <p class="danger" ion-text *ngIf="cardForm.get('number').hasError('required')">Field is required</p>
+                    <p class="danger" ion-text *ngIf="cardForm.get('number').hasError('minlength')">Min of 16 character</p>
+                    <p class="danger" ion-text *ngIf="cardForm.get('number').hasError('maxlength')">Min of 16 characters</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">          
+            <div class="col">
+                <label>Ccv</label>
+                <span class="required">*</span>
+                <input type="text" class="form-control" [(ngModel)]= "card.ccv" formControlName="ccv" placeholder="Ccv">
+                <div *ngIf="cardForm.get('ccv').errors && cardForm.get('ccv').dirty">
+                    <p class="danger" ion-text *ngIf="cardForm.get('ccv').hasError('required')">Field is required</p>
+                    <p class="danger" ion-text *ngIf="cardForm.get('ccv').hasError('minlength')">Min of 3 character</p>
+                    <p class="danger" ion-text *ngIf="cardForm.get('ccv').hasError('maxlength')">Min of 4 characters</p>
+                </div>
+          </div>
+          <div class="col">
+                <label>Card type</label>
+                <span class="required">*</span>
+                <input type="text" class="form-control" [(ngModel)]= "card.card_type" formControlName="card_type" placeholder="Card type">
+                <div *ngIf="cardForm.get('card_type').errors && cardForm.get('card_type').dirty">
+                    <p class="danger" ion-text *ngIf="cardForm.get('card_type').hasError('required')">Field is required</p>
+                    <p class="danger" ion-text *ngIf="cardForm.get('card_type').hasError('minlength')">Min of 1 character</p>
+                    <p class="danger" ion-text *ngIf="cardForm.get('card_type').hasError('maxlength')">Min of 50 characters</p>
+                </div>
+          </div>
+
+        </div>
+        <div class="form-group row hide" [ngClass]="{ 'hide': messageErrors }" > 
+            <div class="col">         
+                <div class="alert alert-danger" role="alert">
+                    Missing data in the form
+                </div>
+            </div>
+        </div>
+        
+  
+        <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Save card</button>
+            </div>
+        </div>
+  
+    </form>
+  </div>
