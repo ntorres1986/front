@@ -1,3 +1,16 @@
-<p>
-  home works!
-</p>
+<div id="header"></div>
+<div id="menu"> 
+    <ul>
+      <li><a>LINTELLLECT</a></li>
+      <li [ngClass]="{'selected':homeClass}" (click)="callContent(1)"><a  class="home" ><span>Home</span></a></li>
+      <li [ngClass]="{'selected':dashboardClass}" (click)="callContent(2)"><a  class="dashboard" >Dashboard</a></li>
+      <li [ngClass]="{'selected':inboxClass}" (click)="callContent(3)"><a  class="email" >Inbox</a></li> 
+    </ul> 
+</div>
+<div id="content">
+    <button (click)="createComponent('Welcome Foo ! ')">Welcome</button>
+    <button (click)="createComponent('Foo Again ?')">Not Welcome</button>
+   
+  <template #container></template>
+
+</div>

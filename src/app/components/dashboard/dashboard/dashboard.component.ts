@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,28 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
-  loading = false;
-  homeClass = false;
-  dashboardClass = false;
-  inboxClass = false;
+  constructor() { } 
+
+  @Input() message: string;
 
   ngOnInit() {
   }
 
-  callContent(contentId) {
-    this.homeClass = this.dashboardClass = this.inboxClass = false;
-    switch (contentId) {
-      case 1:
-        this.homeClass = true;
-      break;
-      case 2:
-        this.dashboardClass = true;
-      break;
-      case 3:
-        this.inboxClass = true;
-      break; 
-    }
-  }
-
+  
 }

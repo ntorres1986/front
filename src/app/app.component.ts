@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Prueba';
   public value: Date = new Date(2000, 2, 10);
+ 
 
 }

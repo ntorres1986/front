@@ -25,6 +25,7 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { ResetAccountComponent } from './components/auth/reset-account/reset-account.component';
 import { ChangeCredentialsComponent } from './components/auth/change-credentials/change-credentials.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   
@@ -113,6 +114,11 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     data: { title: 'Dashboard' }
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    data: { title: 'Home' }
   },
   {
     path: 'signup',
